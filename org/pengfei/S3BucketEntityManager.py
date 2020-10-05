@@ -1,16 +1,14 @@
+from org.pengfei.utile import *
 import os
-import jinja2
-
 
 # get current path
 base_path = os.getcwd()
 
-
-
+config = init_config()
 
 
 # get s3_bucket attributes list
-def get_all_supported_attributes():
+def get_s3_bucket_all_supported_attributes():
     return {
         'name': "Required attribute. "
                 "The name of the s3 bucket, Example, donnees-insee",
@@ -32,3 +30,43 @@ def get_all_supported_attributes():
         'region': 'none',
     }
 
+
+def generate_s3_bucket_json_source(name, domain, qualified_name, description, **kwargs):
+    # get s3_bucket default type
+    entity_type = config.get('aws_s3_bucket', 'entity_type')
+
+    # need to be modified
+    template_file_path = base_path + '/template/' + entity_type + '.json.j2'
+
+    # generate default value for optional empty attributes
+    creator_id = kwargs.get('creator_id', config.get(entity_type, 'creator_id'))
+    updator_id = kwargs.get('updator_id', config.get(entity_type, 'updator_id'))
+    create_time = kwargs.get('create_time', current_milli_time())
+    update_time = kwargs.get('update_time', current_milli_time())
+    owner = kwargs.get('owner', config.get(entity_type, 'owner'))
+    is_encrypted = kwargs.get('is_encrypted', config.get(entity_type, 'is_encrypted'))
+    encryption_type = kwargs.get('encryption_type', config.get(entity_type, 'encryption_type'))
+    partner = kwargs.get('partner', config.get(entity_type, 'partner'))
+    region = kwargs.get('region', config.get(entity_type, 'region'))
+
+    # populate the template with attributes
+    context = {
+        # required attributes
+        'qualified_name': qualified_name,
+        'description': description,
+        'domain': domain,
+        'name': name,
+
+        # optional attributes
+        'created_by': creator_id,
+        'updated_by': updator_id,
+        'create_time': create_time,
+        'update_time': update_time,
+        'owner': owner,
+        'is_encrypted': is_encrypted,
+        'encryption_type': encryption_type,
+        'partner': partner,
+        'region': region,
+    }
+    entity_source = populate_template(template_file_path, context)
+    return entity_source
