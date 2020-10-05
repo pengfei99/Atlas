@@ -29,7 +29,7 @@ def generate_s3_object_entity_json_source(name, qualified_name, ps_dir_qualified
     context = {
         # required attributes
         'name': name,
-        'qualifiedName': qualified_name,
+        'qualified_name': qualified_name,
         'description': description,
         'ps_dir_qualified_name': ps_dir_qualified_name,
         'data_type':data_type,
