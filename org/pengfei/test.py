@@ -7,8 +7,13 @@ print(get_all_supported_entity_type())
 print(get_all_s3_bucket_supported_attributes())
 
 # generate a aws_s3_bucket entity json source file
-s3_bucket_json_source=generate_s3_bucket_entity_json_source("donnees-insee","minio.lab.sspcloud.fr","s3://minio.lab.sspcloud.fr/donnees-insee "," open data"
-                                     ,creator_id="pliu")
-print(s3_bucket_json_source)
+s3_bucket_json_source = generate_s3_bucket_entity_json_source("donnees-insee", "minio.lab.sspcloud.fr",
+                                                              "s3://minio.lab.sspcloud.fr/donnees-insee", " open data"
+                                                              , creator_id="pliu")
+# print(s3_bucket_json_source)
 
 # generate a aws_ps_dir
+s3_ps_dir_json_source = generate_s3_ps_dir_entity_json_source("RP", "s3://minio.lab.sspcloud.fr/donnees-insee/RP",
+                                                              "s3://minio.lab.sspcloud.fr/donnees-insee", "RP/",
+                                                              replicated_from="s3://minio.lab.sspcloud.fr/donnees-insee/pengfei_test")
+print(s3_ps_dir_json_source)

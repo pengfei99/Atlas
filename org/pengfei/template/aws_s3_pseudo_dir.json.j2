@@ -1,24 +1,25 @@
 {
   "entity" : {
-   "typeName": "aws_s3_object",
+      "typeName": "aws_s3_pseudo_dir",
       "attributes": {
         "owner": "{{ owner }}",
         "replicatedTo": {{ replicated_to }},
         "replicatedFrom": {{ replicated_from }},
-        "createTime": 1601503200000,
         "qualifiedName": "{{ qualified_name }}",
-        "dataType": "{{ data_type }}",
-        "name": "{{ name }}",
-        "description": "{{ description }}",
-        "compressionType": "{{  compression_type }}",
-        "pseudoDirectory": {
-          "typeName": "aws_s3_pseudo_dir",
+        "subject": null,
+        "dataType": {{ data_type }},
+        "description": {{ description }},
+        "objectPrefix": "{{ object_prefix }}",
+        "bucket": {
+          "typeName": "aws_s3_bucket",
           "uniqueAttributes": {
-            "qualifiedName": "{{ ps_dir_qualified_name }}",
-            "objectPrefix": "{{ obj_prefix }}"
+            "qualifiedName": "{{ bucket_qualified_name }}"
           }
         },
-        "avroSchema": null,
+        "currentStorageLocation": null,
+        "name": "{{ name }}",
+        "subdomain": null,
+        "avroSchemas": [],
         "awsTags": []
       },
       "status": "ACTIVE",
@@ -27,6 +28,5 @@
       "createTime": {{ create_time }},
       "updateTime": {{ create_time }},
       "version": 0
-
-  }
+    }
 }
