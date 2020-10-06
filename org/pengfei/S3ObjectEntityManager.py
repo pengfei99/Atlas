@@ -6,8 +6,8 @@ base_path = os.getcwd()
 config = init_config()
 
 
-def generate_s3_object_entity_json_source(name, qualified_name, ps_dir_qualified_name, data_type, owner, description,
-                                          **kwargs):
+def generate_s3_object_entity_json_source(name, qualified_name, ps_dir_qualified_name, object_prefix, data_type, owner,
+                                          description, **kwargs):
     # get s3_bucket default type
     entity_type = config.get('aws_s3_object', 'entity_type')
 
@@ -24,7 +24,6 @@ def generate_s3_object_entity_json_source(name, qualified_name, ps_dir_qualified
     replicated_to = kwargs.get('replicated_to', config.get(entity_type, 'replicated_to'))
     replicated_from = kwargs.get('replicated_from', config.get(entity_type, 'replicated_from'))
 
-
     # populate the template with attributes
     context = {
         # required attributes
@@ -32,9 +31,9 @@ def generate_s3_object_entity_json_source(name, qualified_name, ps_dir_qualified
         'qualified_name': qualified_name,
         'description': description,
         'ps_dir_qualified_name': ps_dir_qualified_name,
-        'data_type':data_type,
+        'object_prefix': object_prefix,
+        'data_type': data_type,
         'owner': owner,
-        'description': description,
 
         # optional attributes
         'created_by': creator_id,

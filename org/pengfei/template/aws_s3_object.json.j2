@@ -11,12 +11,12 @@
         "name": "{{ name }}",
         "description": "{{ description }}",
         "compressionType": "{{  compression_type }}",
-        "size": {{ size }}
+        "size": {{ size }},
         "pseudoDirectory": {
           "typeName": "aws_s3_pseudo_dir",
           "uniqueAttributes": {
             "qualifiedName": "{{ ps_dir_qualified_name }}",
-            "objectPrefix": "{{ obj_prefix }}"
+            "objectPrefix": "{{ object_prefix }}"
           }
         },
         "avroSchema": null,
