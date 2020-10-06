@@ -1,4 +1,4 @@
-from org.pengfei.utile import *
+from org.pengfei.entity_source_generation.utile import *
 import os
 
 # get current path
@@ -10,6 +10,7 @@ config = init_config()
 # get s3_bucket attributes list
 def get_s3_bucket_all_supported_attributes():
     return {
+        'entity_type': "aws_s3_bucket",
         'name': "Required attribute. "
                 "The name of the s3 bucket, Example, donnees-insee",
         'domain': "Required attribute. "
@@ -36,7 +37,7 @@ def generate_s3_bucket_json_source(name, domain, qualified_name, description, **
     entity_type = config.get('aws_s3_bucket', 'entity_type')
 
     # need to be modified
-    template_file_path = base_path + '/template/' + entity_type + '.json.j2'
+    template_file_path = base_path + '/entity_source_generation/template/' + entity_type + '.json.j2'
 
     # generate default value for optional empty attributes
     creator_id = kwargs.get('creator_id', config.get(entity_type, 'creator_id'))

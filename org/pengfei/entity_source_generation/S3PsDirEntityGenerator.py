@@ -1,4 +1,4 @@
-from org.pengfei.utile import *
+from org.pengfei.entity_source_generation.utile import *
 
 # get current path
 base_path = os.getcwd()
@@ -7,8 +7,9 @@ config = init_config()
 
 
 # get s3_pseudo_dir attributes list
-def get_all_s3_ps_dir_supported_attributes():
+def get_s3_ps_dir_all_supported_attributes():
     return {
+        'entity_type': "aws_s3_pseudo_dir",
         'name': "Required attribute. "
                 "The name of the s3 pseudo dir, Example, RP",
         'qualifiedName': "Required attribute. "
@@ -26,8 +27,8 @@ def get_all_s3_ps_dir_supported_attributes():
         'create_time': "Creation time of the entity",
         'update_time': "Last modification time of the entity ",
         'owner': "User id of the entity provider",
-        'replicated_to': 'Indicate if this dir is replicated to other path',
-        'replicated_from': 'Indicate if this dir is replicated from other path',
+        'replicated_to': 'Indicate if this dir is replicated to other path. It takes an array of guids',
+        'replicated_from': 'Indicate if this dir is replicated from other path. It takes an array of guids',
         'data_type': 'Specify the the type of data in this dir',
     }
 
@@ -35,9 +36,9 @@ def get_all_s3_ps_dir_supported_attributes():
 def generate_s3_ps_dir_entity_json_source(name, qualified_name, bucket_qualified_name, object_prefix, **kwargs):
     # get s3_ps_dir default type
     entity_type = config.get('aws_s3_pseudo_dir', 'entity_type')
-    print(entity_type)
+
     # need to be modified
-    template_file_path = base_path + '/template/' + entity_type + '.json.j2'
+    template_file_path = base_path + '/entity_source_generation/template/' + entity_type + '.json.j2'
 
     # generate default value for optional empty attributes
     creator_id = kwargs.get('creator_id', config.get(entity_type, 'creator_id'))

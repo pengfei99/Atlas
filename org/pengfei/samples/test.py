@@ -1,12 +1,19 @@
-from org.pengfei.S3BucketEntityManager import generate_s3_bucket_json_source
-from org.pengfei.S3PsDirEntityManager import generate_s3_ps_dir_entity_json_source
-from org.pengfei.S3ObjectEntityManager import generate_s3_object_entity_json_source
+from org.pengfei.entity_source_generation.S3BucketEntityGenerator import *
+from org.pengfei.entity_source_generation.S3PsDirEntityGenerator import *
+from org.pengfei.entity_source_generation.S3ObjectEntityGenerator import *
+from org.pengfei.docs.EntityManagerApiHelper import *
 
 # get all supported entity types
-# print(get_all_supported_entity_type())
+print(get_all_supported_entity_type())
 
 # get attributes info of entity aws_s3_bucket
-# print(get_all_s3_bucket_supported_attributes())
+print(get_s3_bucket_all_supported_attributes())
+
+# get attributes info of ps dir
+print(get_s3_ps_dir_all_supported_attributes())
+
+# get attributes info of s3 object
+print(get_s3_object_all_supported_attributes())
 
 # generate a aws_s3_bucket entity json source file
 s3_bucket_json_source = generate_s3_bucket_json_source ("donnees-insee", "minio.lab.sspcloud.fr",
