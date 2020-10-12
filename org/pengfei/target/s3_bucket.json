@@ -1,0 +1,23 @@
+{
+  "entity" : {
+    "status" : "ACTIVE",
+     "createdBy" : "admin",
+      "updatedBy" : "admin",
+      "createTime": 1602514311677,
+      "updateTime": 1602514311677,
+    "version" : 0,
+    "typeName": "aws_s3_bucket",
+      "attributes": {
+        "owner": "foobar",
+        "createtime": 1602514311677,
+        "qualifiedName": "s3://pengfei.org/pengfei_test",
+        "encryptionType": "none",
+        "description": "test for me",
+        "partner": "none",
+        "domain": "s3://pengfei.org",
+        "isEncrypted": false,
+        "name": "pengfei_test",
+        "region": "none"
+      }
+  }
+}

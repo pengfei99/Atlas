@@ -1,5 +1,5 @@
 import time
-import configparser
+from configparser import SafeConfigParser
 import os
 import jinja2
 
@@ -10,10 +10,13 @@ def current_milli_time():
 
 
 # set up config file
-def init_config():
-    config = configparser.ConfigParser()
-    config.read(os.getcwd() + "/config/config.ini")
-    return config
+def init_config(config_file_path):
+    if os.path.isfile(config_file_path):
+        config = SafeConfigParser()
+        config.read(config_file_path)
+        return config
+    else:
+        print("config file not found")
 
 
 # jinja2 util function, it takes a jinja2 template and a dict of attributes, then merges them to generate a target file
