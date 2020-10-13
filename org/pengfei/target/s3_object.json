@@ -1,0 +1,33 @@
+{
+  "entity" : {
+   "typeName": "aws_s3_object",
+      "attributes": {
+        "owner": "pengfei",
+        "replicatedTo": null,
+        "replicatedFrom": null,
+        "createTime": 1601503200000,
+        "qualifiedName": "s3://pengfei.org/pengfei_test1/data_science/toto.csv",
+        "dataType": "csv",
+        "name": "toto.csv",
+        "description": "test txt",
+        "compressionType": "null",
+        "size": null,
+        "pseudoDirectory": {
+          "typeName": "aws_s3_pseudo_dir",
+          "uniqueAttributes": {
+            "qualifiedName": "s3://pengfei.org/pengfei_test1/data_science",
+            "objectPrefix": "data_science"
+          }
+        },
+        "avroSchema": null,
+        "awsTags": []
+      },
+      "status": "ACTIVE",
+      "createdBy" : "admin",
+      "updatedBy" : "admin",
+      "createTime": 1602597380071,
+      "updateTime": 1602597380071,
+      "version": 0
+
+  }
+}

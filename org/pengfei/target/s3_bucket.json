@@ -3,20 +3,20 @@
     "status" : "ACTIVE",
      "createdBy" : "admin",
       "updatedBy" : "admin",
-      "createTime": 1602575858187,
-      "updateTime": 1602575858187,
+      "createTime": 1602591735902,
+      "updateTime": 1602591735902,
     "version" : 0,
     "typeName": "aws_s3_bucket",
       "attributes": {
         "owner": "foobar",
-        "createtime": 1602575858187,
-        "qualifiedName": "s3://pengfei.org/pengfei_test3",
+        "createtime": 1602591735902,
+        "qualifiedName": "s3://pengfei.org/pengfei_test1",
         "encryptionType": "none",
-        "description": "test3 for me",
+        "description": "test1 for me",
         "partner": "none",
         "domain": "s3://pengfei.org",
         "isEncrypted": false,
-        "name": "pengfei_test3",
+        "name": "pengfei_test1",
         "region": "none"
       }
   }

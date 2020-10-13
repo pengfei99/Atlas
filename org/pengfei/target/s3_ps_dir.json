@@ -1,0 +1,32 @@
+{
+"entity" : {
+"typeName": "aws_s3_pseudo_dir",
+"attributes": {
+"owner": "foobar",
+"replicatedTo": null,
+"replicatedFrom": null,
+"qualifiedName": "s3://pengfei.org/pengfei_test1/data_science1",
+"subject": null,
+"dataType": null,
+"description": null,
+"objectPrefix": "data_science1/",
+"bucket": {
+"typeName": "aws_s3_bucket",
+"uniqueAttributes": {
+"qualifiedName": "s3://pengfei.org/pengfei_test1"
+}
+},
+"currentStorageLocation": null,
+"name": "data_science1",
+"subdomain": null,
+"avroSchemas": [],
+"awsTags": []
+},
+"status": "ACTIVE",
+"createdBy" : "admin",
+"updatedBy" : "admin",
+"createTime": 1602596412890,
+"updateTime": 1602596412890,
+"version": 0
+}
+}
