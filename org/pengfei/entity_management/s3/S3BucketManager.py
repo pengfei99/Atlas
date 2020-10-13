@@ -27,8 +27,20 @@ class S3BucketManager:
 
     def get_s3_bucket(self, guid):
         s3_bucket = self.client.entity_guid(guid)
-        print(s3_bucket._data)
-        return s3_bucket
+        print("get_result"+str(s3_bucket._data))
+        return s3_bucket.entity
+
+    @staticmethod
+    def get_s3_attributes(entity):
+        return entity['attributes']
+
+    @staticmethod
+    def show_s3_attributes(entity):
+        print(entity['attributes'])
+
+    @staticmethod
+    def get_s3_attributes_key_list(entity):
+        return S3BucketManager.get_s3_attributes(entity).keys()
 
     def update_s3_bucket(self, guid, attribute_name, attribute_value):
         s3_bucket = self.client.entity_guid(guid)
