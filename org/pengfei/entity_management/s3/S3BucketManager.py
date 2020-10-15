@@ -10,7 +10,7 @@ class S3BucketManager(EntityManager):
 
     def create_entity(self, name, domain, qualified_name, description, **kwargs):
         s3_bucket_json_source = S3BucketEntityGenerator.generate_s3_bucket_json_source(name, domain, qualified_name,
-                                                                                       description)
+                                                                                       description, **kwargs)
         target_file = TARGET_FOLDER + "/s3_bucket.json"
         f = open(target_file, "w")
         f.write(s3_bucket_json_source)
@@ -18,4 +18,10 @@ class S3BucketManager(EntityManager):
         with open(target_file, "r") as json_file:
             s3_bucket_json_source = json.load(json_file)
             print(s3_bucket_json_source)
-        self.client.entity_post.create(data=s3_bucket_json_source)
+        try:
+            self.client.entity_post.create(data=s3_bucket_json_source)
+        except Exception as e:
+            print("atlas bucket entity creation failed. Origin exception: "+str(e))
+            return False
+        else:
+            return True

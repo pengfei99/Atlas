@@ -5,19 +5,19 @@
 "owner": "foobar",
 "replicatedTo": null,
 "replicatedFrom": null,
-"qualifiedName": "s3://pengfei.org/pengfei_test1/data_science1",
+"qualifiedName": "minio.lab.sspcloud.fr/pengfei/pengfei_test",
 "subject": null,
-"dataType": null,
-"description": null,
-"objectPrefix": "data_science1/",
+"dataType": "null",
+"description": "added by minio hook",
+"objectPrefix": "entity_name/",
 "bucket": {
 "typeName": "aws_s3_bucket",
 "uniqueAttributes": {
-"qualifiedName": "s3://pengfei.org/pengfei_test1"
+"qualifiedName": "minio.lab.sspcloud.fr/pengfei"
 }
 },
 "currentStorageLocation": null,
-"name": "data_science1",
+"name": "pengfei_test",
 "subdomain": null,
 "avroSchemas": [],
 "awsTags": []
@@ -25,8 +25,8 @@
 "status": "ACTIVE",
 "createdBy" : "admin",
 "updatedBy" : "admin",
-"createTime": 1602596412890,
-"updateTime": 1602596412890,
+"createTime": 1602776870380,
+"updateTime": 1602776870380,
 "version": 0
 }
 }

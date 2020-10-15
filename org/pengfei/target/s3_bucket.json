@@ -3,20 +3,20 @@
     "status" : "ACTIVE",
      "createdBy" : "admin",
       "updatedBy" : "admin",
-      "createTime": 1602591735902,
-      "updateTime": 1602591735902,
+      "createTime": 1599473523092,
+      "updateTime": 1599473523092,
     "version" : 0,
     "typeName": "aws_s3_bucket",
       "attributes": {
         "owner": "foobar",
-        "createtime": 1602591735902,
-        "qualifiedName": "s3://pengfei.org/pengfei_test1",
+        "createtime": 1599473523092,
+        "qualifiedName": "minio.lab.sspcloud.fr/pengfei",
         "encryptionType": "none",
-        "description": "test1 for me",
+        "description": "added by minio hook",
         "partner": "none",
-        "domain": "s3://pengfei.org",
+        "domain": "minio.lab.sspcloud.fr",
         "isEncrypted": false,
-        "name": "pengfei_test1",
+        "name": "pengfei",
         "region": "none"
       }
   }

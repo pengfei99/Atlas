@@ -2,6 +2,7 @@ from minio import Minio
 from minio.error import (ResponseError, BucketAlreadyOwnedByYou,
                          BucketAlreadyExists)
 
+
 minioClient = Minio('minio.lab.sspcloud.fr',
                     access_key='DSW0PH8P9QERM6S3NTLO',
                     secret_key='RcwNtUJnwRP04Rk2MzpWWOh4HFqe+N1hKaYA27C6',
