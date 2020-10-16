@@ -5,7 +5,8 @@
         "owner": "{{ owner }}",
         "replicatedTo": {{ replicated_to }},
         "replicatedFrom": {{ replicated_from }},
-        "createTime": 1601503200000,
+        "createTime": {{ create_time }},
+        "lastModified": {{ update_time }},
         "qualifiedName": "{{ qualified_name }}",
         "dataType": "{{ data_type }}",
         "name": "{{ name }}",
@@ -26,7 +27,7 @@
       "createdBy" : "{{ created_by }}",
       "updatedBy" : "{{ updated_by }}",
       "createTime": {{ create_time }},
-      "updateTime": {{ create_time }},
+      "updateTime": {{ update_time }},
       "version": 0
 
   }

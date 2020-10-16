@@ -5,18 +5,19 @@
         "owner": "pengfei",
         "replicatedTo": null,
         "replicatedFrom": null,
-        "createTime": 1601503200000,
-        "qualifiedName": "s3://pengfei.org/pengfei_test1/data_science/toto.csv",
-        "dataType": "csv",
-        "name": "toto.csv",
-        "description": "test txt",
+        "createTime": 1602748462000,
+        "lastModified": 1602748462000,
+        "qualifiedName": "pengfei/pengfei_test/Demo2_ Retail_WEB_SITE_BI.json",
+        "dataType": "json",
+        "name": "Demo2_ Retail_WEB_SITE_BI.json",
+        "description": "added by minio hook",
         "compressionType": "null",
-        "size": null,
+        "size": 34467,
         "pseudoDirectory": {
           "typeName": "aws_s3_pseudo_dir",
           "uniqueAttributes": {
-            "qualifiedName": "s3://pengfei.org/pengfei_test1/data_science",
-            "objectPrefix": "data_science"
+            "qualifiedName": "pengfei/pengfei_test",
+            "objectPrefix": "pengfei_test/"
           }
         },
         "avroSchema": null,
@@ -25,8 +26,8 @@
       "status": "ACTIVE",
       "createdBy" : "admin",
       "updatedBy" : "admin",
-      "createTime": 1602597380071,
-      "updateTime": 1602597380071,
+      "createTime": 1602748462000,
+      "updateTime": 1602748462000,
       "version": 0
 
   }
