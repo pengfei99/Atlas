@@ -1,6 +1,13 @@
+from org.pengfei.atlas_client.client import Atlas
 from org.pengfei.entity_search.EntityFinder import EntityFinder
 
-finder = EntityFinder("localhost", 21000, "admin", "admin")
+atlas_hostname = "localhost"
+atlas_port = 21000
+atlas_login = "admin"
+atlas_pwd = "admin"
+
+atlas_client = Atlas(atlas_hostname, atlas_port, username=atlas_login, password=atlas_pwd)
+finder = EntityFinder(atlas_client)
 finder.search_by_attribute("aws_s3_bucket", "owner", "foobar")
 
 search_result = finder.search_full_text("aws_s3_bucket", "test")

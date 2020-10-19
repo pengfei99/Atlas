@@ -1,3 +1,5 @@
+from org.pengfei.atlas_client.client import Atlas
+from org.pengfei.entity_management.s3.S3BucketManager import S3BucketManager
 from org.pengfei.entity_management.s3.S3ObjectManager import S3ObjectManager
 
 hostname = "localhost"
@@ -5,12 +7,9 @@ port = 21000
 login = "admin"
 pwd = "admin"
 
-prod_h_name = "atlas.lab.sspcloud.fr"
-prod_port = 80
-prod_login = "pengfei"
-prod_pwd = ""
 
-# s3_bucket_manager = S3BucketManager(hostname, port, login, pwd)
+atlas_client = Atlas(hostname, port, username=login, password=pwd)
+s3_bucket_manager = S3BucketManager(atlas_client)
 
 # creat s3 bucket in atlas
 # s3_bucket_manager.create_s3_bucket("pengfei_test", "s3://pengfei.org", "s3://pengfei.org/pengfei_test", "test for me")
@@ -40,7 +39,7 @@ prod_pwd = ""
 # s3_ps_dir_manager.create_entity("data_science1", "s3://pengfei.org/pengfei_test1/data_science1",
 #                                 "s3://pengfei.org/pengfei_test1", "data_science1/")
 
-s3_obj_manager = S3ObjectManager(hostname, port, login, pwd)
+s3_obj_manager = S3ObjectManager(atlas_client)
 s3_obj_manager.create_entity("toto.csv", "s3://pengfei.org/pengfei_test1/data_science/toto.csv",
                              "s3://pengfei.org/pengfei_test1/data_science", "data_science", "csv", "pengfei",
                              "test txt")

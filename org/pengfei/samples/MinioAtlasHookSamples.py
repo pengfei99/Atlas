@@ -1,4 +1,6 @@
+from org.pengfei.atlas_client.client import Atlas
 from org.pengfei.minio.MinioAtlasHook import MinioAtlasHook
+from org.pengfei.minio.MinioClient import MinioClient
 
 minio_end_point = 'minio.lab.sspcloud.fr'
 minio_access_key = 'GJGQUDFQGXHCEFJDA4GR'
@@ -10,7 +12,10 @@ atlas_port = 21000
 atlas_login = "admin"
 atlas_pwd = "admin"
 
-minio_hook = MinioAtlasHook(minio_end_point,minio_access_key,minio_secret_key,minio_token,atlas_hostname,atlas_port,atlas_login,atlas_pwd)
+minio_client = MinioClient(minio_end_point, minio_access_key, minio_secret_key, minio_token)
+atlas_client = Atlas(atlas_hostname, atlas_port, username=atlas_login, password=atlas_pwd)
+minio_hook = MinioAtlasHook(minio_client, atlas_client)
+
 
 path = "pengfei"
 path1 = "pengfei/pengfei_test/for_demo/"
@@ -18,27 +23,27 @@ path_long="pengfei/pengfei_test/data_science/deep_learning/data_set"
 path2 = "pengfei/pengfei_test/for_demo/iris.txt"
 
 # Alias of FilesystemSpec.info
-meta_data = minio_hook.get_entity_meta_data(path)
-meta_data1 = minio_hook.get_entity_meta_data(path1)
-meta_data2 = minio_hook.get_entity_meta_data(path2)
-long_meta=minio_hook.get_entity_meta_data(path_long)
+meta_data = minio_client.get_path_meta_data(path)
+meta_data1 = minio_client.get_path_meta_data(path1)
+meta_data2 = minio_client.get_path_meta_data(path2)
+long_meta=minio_client.get_path_meta_data(path_long)
 print(long_meta)
 # print(content)
 print(meta_data)
 print(meta_data1)
 print(meta_data2)
 
-path_class = minio_hook.get_type_from_path(path)
-path_class1 = minio_hook.get_class_from_path(path1)
-path_class2 = minio_hook.get_class_from_path(path2)
+path_class = minio_client.get_type_from_path(path)
+path_class1 = minio_client.get_class_from_path(path1)
+path_class2 = minio_client.get_class_from_path(path2)
 
 print(path_class)
 print(path_class1)
 print(path_class2)
 
-path_type = minio_hook.get_type_from_path(path)
-path_type1 = minio_hook.get_type_from_path(path1)
-path_type2 = minio_hook.get_type_from_path(path2)
+path_type = minio_client.get_type_from_path(path)
+path_type1 = minio_client.get_type_from_path(path1)
+path_type2 = minio_client.get_type_from_path(path2)
 
 print(path_type)
 print(path_type1)

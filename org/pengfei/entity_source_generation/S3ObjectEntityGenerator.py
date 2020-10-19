@@ -38,10 +38,10 @@ class S3ObjectEntityGenerator:
             'replicated_to': 'Indicate if this dir is replicated to other path. It takes an array of guids',
             'replicated_from': 'Indicate if this dir is replicated from other path. It takes an array of guids',
         }
-
-    def generate_s3_object_entity_json_source(name, qualified_name, ps_dir_qualified_name, object_prefix, data_type,
-                                              owner,
-                                              description, **kwargs):
+    
+    @staticmethod
+    def generate_s3_object_entity_json_source(name, qualified_name, ps_dir_qualified_name, object_prefix,
+                                              data_type, owner, description, **kwargs):
         # get s3_bucket default type
         entity_type = S3ObjectEntityGenerator.config.get('aws_s3_object', 'entity_type')
 

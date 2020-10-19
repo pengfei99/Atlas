@@ -1,13 +1,6 @@
-from atlasclient.client import Atlas
-
-
 class EntityFinder:
-    def __init__(self, host_name, port_number, user_name, password):
-        self.host_name = host_name
-        self.port_number = port_number
-        self.user_name = user_name
-        self.password = password
-        self.client = Atlas(host_name, port_number, username=user_name, password=password)
+    def __init__(self, atlas_client):
+        self.client = atlas_client
 
     def search_by_attribute(self, type_name, attribute_name, attribute_value):
 

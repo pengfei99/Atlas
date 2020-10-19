@@ -19,7 +19,7 @@ import logging
 import itertools
 import six
 
-from atlasclient import base, exceptions, events
+from org.pengfei.atlas_client import base, exceptions, events
 
 LOG = logging.getLogger('pyatlasclient')
 

@@ -22,7 +22,7 @@ import six
 import time
 from datetime import datetime, timedelta
 
-from atlasclient import events, exceptions, utils
+from org.pengfei.atlas_client import events, exceptions, utils
 
 LOG = logging.getLogger('pyatlasclient')
 
