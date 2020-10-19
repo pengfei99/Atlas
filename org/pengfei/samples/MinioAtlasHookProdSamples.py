@@ -16,9 +16,9 @@ atlas_client = Atlas(atlas_hostname, atlas_port, oidc_token=oidc_token)
 minio_hook = MinioAtlasHook(minio_client, atlas_client)
 
 path = "pengfei"
-path1 = "pengfei/pengfei_test/for_demo/"
+path1 = "pengfei/pengfei_test/data_science/deep_learning"
 path_long = "pengfei/pengfei_test/data_science/deep_learning/data_set"
-path2 = "pengfei/pengfei_test/for_demo/1-introduction.ipynb"
+path2 = "pengfei/pengfei_test/data_science/deep_learning/paper.pdf"
 
 # Alias of FilesystemSpec.info
 # meta_data = minio_client.get_path_meta_data(path)

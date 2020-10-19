@@ -1,6 +1,6 @@
-from org.pengfei.entity_source_generation.utile import *
 from org.pengfei.definition import CONFIG_PATH
 from org.pengfei.definition import TEMPLATE_FOLDER_PATH
+from org.pengfei.entity_source_generation.utile import *
 
 
 class S3BucketEntityGenerator:
@@ -33,7 +33,7 @@ class S3BucketEntityGenerator:
         }
 
     @staticmethod
-    def generate_s3_bucket_json_source(name, domain, qualified_name, description, **kwargs):
+    def generate_s3_bucket_json_source(name: str, domain: str, qualified_name: str, description: str, **kwargs):
         # get s3_bucket default type
         entity_type = S3BucketEntityGenerator.config.get('aws_s3_bucket', 'entity_type')
         # need to be modified

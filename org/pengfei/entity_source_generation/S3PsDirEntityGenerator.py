@@ -34,7 +34,8 @@ class S3PsDirEntityGenerator:
         }
 
     @staticmethod
-    def generate_s3_ps_dir_entity_json_source(name, qualified_name, bucket_qualified_name, object_prefix, **kwargs):
+    def generate_s3_ps_dir_entity_json_source(name: str, qualified_name: str, bucket_qualified_name: str,
+                                              object_prefix: str, **kwargs):
         # get s3_ps_dir default type
         entity_type = S3PsDirEntityGenerator.config.get('aws_s3_pseudo_dir', 'entity_type')
 
@@ -49,7 +50,8 @@ class S3PsDirEntityGenerator:
         owner = kwargs.get('owner', S3PsDirEntityGenerator.config.get(entity_type, 'owner'))
         description = kwargs.get('description', S3PsDirEntityGenerator.config.get(entity_type, 'description'))
         replicated_to = kwargs.get('replicated_to', S3PsDirEntityGenerator.config.get(entity_type, 'replicated_to'))
-        replicated_from = kwargs.get('replicated_from', S3PsDirEntityGenerator.config.get(entity_type, 'replicated_from'))
+        replicated_from = kwargs.get('replicated_from',
+                                     S3PsDirEntityGenerator.config.get(entity_type, 'replicated_from'))
         data_type = kwargs.get('data_type', S3PsDirEntityGenerator.config.get(entity_type, 'data_type'))
 
         # populate the template with attributes

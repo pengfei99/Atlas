@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 
+from org.pengfei.atlas_client.client import Atlas
 from org.pengfei.entity_management.s3.S3BucketManager import S3BucketManager
 from org.pengfei.entity_management.s3.S3ObjectManager import S3ObjectManager
 from org.pengfei.entity_management.s3.S3PsDirManager import S3PsDirManager
@@ -8,14 +9,14 @@ from org.pengfei.minio.MinioClient import MinioClient
 
 
 class MinioAtlasHook:
-    def __init__(self, minio_client: MinioClient, atlas_client):
+    def __init__(self, minio_client: MinioClient, atlas_client: Atlas):
         self.minio_end_point = minio_client.get_end_point()
         self.fs = minio_client.get_fs()
         self.s3_bucket_manager = S3BucketManager(atlas_client)
         self.s3_ps_dir_manager = S3PsDirManager(atlas_client)
         self.s3_object_manager = S3ObjectManager(atlas_client)
 
-    def create_atlas_bucket(self, bucket_metadata, bucket_description):
+    def create_atlas_bucket(self, bucket_metadata: dict, bucket_description: str) -> None:
         entity_name = bucket_metadata['name']
         qualified_bucket_name = self.minio_end_point + "/" + entity_name
         domain = self.minio_end_point
@@ -26,7 +27,7 @@ class MinioAtlasHook:
                                              qualified_bucket_name,
                                              bucket_description, create_time=create_time_stamp)
 
-    def create_atlas_ps_dir(self, ps_dir_metadata, ps_dir_description):
+    def create_atlas_ps_dir(self, ps_dir_metadata: dict, ps_dir_description: str) -> None:
         names = ps_dir_metadata['name'].split("/")
         bucket_name = names[0]
         entity_name = "/".join(names[1:])
@@ -36,7 +37,7 @@ class MinioAtlasHook:
         self.s3_ps_dir_manager.create_entity(entity_name, qualified_entity_name,
                                              qualified_bucket_name, prefix, description=ps_dir_description)
 
-    def create_atlas_object(self, object_metadata, object_description):
+    def create_atlas_object(self, object_metadata: dict, owner: str, object_description: str) -> None:
         names = object_metadata['name'].split('/')
         entity_name = names[-1]
         qualified_entity_name = object_metadata['name']
@@ -48,6 +49,6 @@ class MinioAtlasHook:
         size = object_metadata['size']
         self.s3_object_manager.create_entity(entity_name, qualified_entity_name,
                                              qualified_ps_dir_name, ps_dir_prefix, extension,
-                                             "pengfei",
+                                             owner,
                                              object_description, create_time=last_modified_stamp,
                                              update_time=last_modified_stamp, size=size)
