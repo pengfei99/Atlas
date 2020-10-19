@@ -1,16 +1,17 @@
 import json
 
+from org.pengfei.atlas_client.client import Atlas
 from org.pengfei.definition import TARGET_FOLDER
 from org.pengfei.entity_management.EntityManager import EntityManager
 from org.pengfei.entity_source_generation.S3ObjectEntityGenerator import S3ObjectEntityGenerator
 
 
 class S3ObjectManager(EntityManager):
-    def __init__(self, atlas_client):
+    def __init__(self, atlas_client: Atlas):
         super().__init__(atlas_client)
 
-    def create_entity(self, name, qualified_name, ps_dir_qualified_name, object_prefix, data_type, owner, description,
-                      **kwargs):
+    def create_entity(self, name: str, qualified_name: str, ps_dir_qualified_name: str, object_prefix: str,
+                      data_type: str, owner: str, description: str,**kwargs) -> None:
         s3_object_json_source = S3ObjectEntityGenerator.generate_s3_object_entity_json_source(name, qualified_name,
                                                                                               ps_dir_qualified_name,
                                                                                               object_prefix, data_type,
